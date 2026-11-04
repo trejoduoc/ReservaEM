@@ -1,0 +1,57 @@
+Información proyecto - brief
+La Escuela Militar es una institución formadora de los futuros Oficiales del Ejército de Chile, con una importante infraestructura destinada al desarrollo académico, militar, cultural y deportivo de sus alumnos. Dentro de sus instalaciones deportivas, cuenta con 14 recintos especializados que permiten la práctica de múltiples disciplinas y el desarrollo de actividades de alto rendimiento.
+
+Áreas Deportivas
+
+
+
+Actualmente, la Escuela Militar dispone de las siguientes instalaciones deportivas:
+
+Pista Atlética.
+Sala de Musculación.
+Gimnasio de Básquetbol.
+Gimnasio de Vóleibol.
+Estadio
+Cancha de Rugby N.° 2.
+Cancha de Fútbol N.° 2.
+Seis canchas de tenis.
+Cancha de Baby Fútbol.
+Cancha de Futbolito.
+Multicancha N.° 1.
+Multicancha N.° 2.
+Tatami para disciplinas de combate.
+Aula Magna para actividades institucionales y eventos.
+Cancha de Obstáculos de Pentatlón Militar.
+Uso y gestión de las instalaciones
+
+
+
+Estas instalaciones son utilizadas diariamente por una amplia variedad de usuarios, lo que convierte a la programación y coordinación de los espacios en un proceso clave para el correcto funcionamiento de las actividades institucionales.
+
+Entre los principales usuarios se encuentran:
+
+Alumnos de la Escuela Militar.
+Ramas deportivas institucionales.
+Corporación de Exalumnos de la Escuela Militar.
+Federación Deportiva Nacional de Rugby de Chile.
+Selecciones nacionales de rugby "Los Cóndores XV" y "Los Cóndores Seven".
+Establecimientos educacionales externos, como el Colegio Alcázar de Las Condes.
+Fundaciones y organizaciones colaboradoras.
+Promociones de exalumnos.
+Programas de vinculación con el medio, entre ellos "Miradas Compartidas".
+La convivencia de múltiples actividades deportivas, académicas e institucionales genera semanalmente una alta demanda por los espacios deportivos, especialmente en canchas de pasto natural, gimnasios y salas especializadas. Esto obliga a mantener una planificación eficiente que permita optimizar los recursos disponibles y minimizar eventuales conflictos de horario entre los distintos usuarios.
+
+Contexto del proyecto
+
+
+
+Con el objetivo de modernizar y optimizar la administración de las instalaciones deportivas, actualmente la Escuela Militar utiliza una plataforma de reservas desarrollada a medida, disponible a través del portal institucional.
+
+Esta solución tecnológica permite:
+
+Ingresar solicitudes de reserva de instalaciones deportivas.
+Gestionar flujos de aprobación y autorización.
+Administrar bloques horarios disponibles.
+Visualizar en forma centralizada la programación semanal de cada recinto.
+Integrarse con Google Calendar para facilitar la coordinación entre usuarios y administradores.
+La plataforma constituye una herramienta fundamental para la gestión operativa de las áreas deportivas, permitiendo ordenar una elevada cantidad de reservas semanales y asegurar la disponibilidad de los espacios para las distintas actividades institucionales y externas.

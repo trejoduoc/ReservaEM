@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "440334242027",
+    "project_id": "escuelamilitarreservas",
+    "storage_bucket": "escuelamilitarreservas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440334242027:android:fb05330e71f9b7f8762eae",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440334242027-ak7cbp9mfaki1ie7ui63o7okq38g60qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_pptaKK6Kqdl2U1e1Zv43HrzRRYapkEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440334242027-ak7cbp9mfaki1ie7ui63o7okq38g60qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440334242027:android:9390d5b7368bb03e762eae",
+        "android_client_info": {
+          "package_name": "com.sebatrejo.resem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440334242027-ak7cbp9mfaki1ie7ui63o7okq38g60qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_pptaKK6Kqdl2U1e1Zv43HrzRRYapkEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440334242027-ak7cbp9mfaki1ie7ui63o7okq38g60qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
