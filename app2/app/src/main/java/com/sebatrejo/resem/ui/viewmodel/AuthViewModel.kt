@@ -1,4 +1,4 @@
-package com.sebatrejo.reservaem.ui.viewmodel
+package com.sebatrejo.resem.ui.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

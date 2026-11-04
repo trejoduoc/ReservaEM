@@ -10,7 +10,7 @@
         android:theme="@style/Theme.Resem"> <!-- Verifica que el nombre del tema coincida con el tuyo -->
 
         <activity
-            android:name="com.sebatrejo.reservaem.MainActivity"
+            android:name="com.sebatrejo.resem.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Resem"> <!-- Verifica el tema aquí también -->
             <intent-filter>

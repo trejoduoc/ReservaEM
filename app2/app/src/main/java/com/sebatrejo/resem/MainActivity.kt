@@ -1,4 +1,4 @@
-package com.sebatrejo.reservaem
+package com.sebatrejo.resem
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,9 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sebatrejo.reservaem.ui.screens.LoginScreen
-import com.sebatrejo.reservaem.ui.screens.AlumnoHomeScreen
-import com.sebatrejo.reservaem.ui.viewmodel.AuthViewModel
+import com.sebatrejo.resem.ui.screens.LoginScreen
+import com.sebatrejo.resem.ui.screens.AlumnoHomeScreen
+import com.sebatrejo.resem.ui.screens.ReservaFormScreen
+import com.sebatrejo.resem.ui.screens.AdminHomeScreen
+import com.sebatrejo.resem.ui.screens.MisReservasScreen
+import com.sebatrejo.resem.ui.viewmodel.AuthViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,14 +47,34 @@ class MainActivity : ComponentActivity() {
                 composable("alumno_home") {
                     AlumnoHomeScreen(
                         onRecintoSelected = { recinto ->
-                            // Por ahora solo imprimimos en consola, luego navegaremos al formulario de reserva
-                            println("Recinto seleccionado: ${recinto.nombre}")
+                            navController.navigate("reserva_form/${recinto.id}/${recinto.nombre}")
+                        },
+                        onViewMyReservations = {
+                            navController.navigate("mis_reservas")
+                        }
+                    )
+                }
+
+                composable("mis_reservas") {
+                    MisReservasScreen(
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+
+                composable("reserva_form/{recintoId}/{recintoNombre}") { backStackEntry ->
+                    val id = backStackEntry.arguments?.getString("recintoId") ?: ""
+                    val nombre = backStackEntry.arguments?.getString("recintoNombre") ?: ""
+                    ReservaFormScreen(
+                        recintoId = id,
+                        recintoNombre = nombre,
+                        onReservationComplete = {
+                            navController.navigate("mis_reservas")
                         }
                     )
                 }
 
                 composable("admin_home") {
-                    AdminHomePlaceholder()
+                    AdminHomeScreen()
                 }
             }
         }

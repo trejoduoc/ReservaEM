@@ -1,11 +1,11 @@
-package com.sebatrejo.reservaem.ui.screens
+package com.sebatrejo.resem.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.SportsSoccer
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,11 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sebatrejo.reservaem.data.Recinto
+import com.sebatrejo.resem.data.Recinto
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit) {
-    // Lista de los 14 recintos deportivos (Simulados por ahora)
+fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations: () -> Unit) {
     val recintos = listOf(
         Recinto(id = "1", nombre = "Cancha de Fútbol 1", descripcion = "Césped sintético"),
         Recinto(id = "2", nombre = "Cancha de Fútbol 2", descripcion = "Césped sintético"),
@@ -43,6 +43,13 @@ fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit) {
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
+            )
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                onClick = onViewMyReservations,
+                icon = { Icon(Icons.Default.Place, contentDescription = null) },
+                text = { Text("Mis Reservas") }
             )
         }
     ) { padding ->
@@ -82,7 +89,7 @@ fun RecintoCard(recinto: Recinto, onClick: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.SportsSoccer,
+                imageVector = Icons.Default.Place,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(40.dp)

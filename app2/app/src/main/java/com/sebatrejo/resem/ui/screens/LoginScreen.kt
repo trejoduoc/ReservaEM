@@ -1,4 +1,4 @@
-package com.sebatrejo.reservaem.ui.screens
+package com.sebatrejo.resem.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -9,7 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sebatrejo.reservaem.ui.viewmodel.AuthViewModel
+import com.sebatrejo.resem.ui.viewmodel.AuthViewModel
 
 @Composable
 fun LoginScreen(viewModel: AuthViewModel, onLoginSuccess: (String) -> Unit) {
