@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,10 +15,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sebatrejo.resem.data.Recinto
+import com.sebatrejo.resem.ui.viewmodel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations: () -> Unit) {
+fun AlumnoHomeScreen(
+    authViewModel: AuthViewModel,
+    onRecintoSelected: (Recinto) -> Unit,
+    onViewMyReservations: () -> Unit,
+    onLogout: () -> Unit
+) {
     val recintos = listOf(
         Recinto(id = "1", nombre = "Cancha de Fútbol 1", descripcion = "Césped sintético"),
         Recinto(id = "2", nombre = "Cancha de Fútbol 2", descripcion = "Césped sintético"),
@@ -40,6 +46,11 @@ fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations:
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text("Reserva de Recintos", fontWeight = FontWeight.Bold) },
+                actions = {
+                    IconButton(onClick = onLogout) {
+                        Icon(Icons.Default.ExitToApp, contentDescription = "Cerrar Sesión")
+                    }
+                },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
@@ -48,7 +59,7 @@ fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations:
         floatingActionButton = {
             ExtendedFloatingActionButton(
                 onClick = onViewMyReservations,
-                icon = { Icon(Icons.Default.Place, contentDescription = null) },
+                icon = { Icon(Icons.Default.List, contentDescription = null) },
                 text = { Text("Mis Reservas") }
             )
         }
@@ -58,13 +69,14 @@ fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations:
                 .fillMaxSize()
                 .padding(padding),
             contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
                 Text(
-                    text = "Selecciona el recinto que deseas reservar:",
-                    fontSize = 16.sp,
-                    modifier = Modifier.padding(bottom = 8.dp)
+                    text = "¡Hola! Selecciona un recinto:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier.padding(bottom = 12.dp)
                 )
             }
             items(recintos) { recinto ->
@@ -76,35 +88,52 @@ fun AlumnoHomeScreen(onRecintoSelected: (Recinto) -> Unit, onViewMyReservations:
 
 @Composable
 fun RecintoCard(recinto: Recinto, onClick: () -> Unit) {
+    val icon = when {
+        recinto.nombre.contains("Fútbol", ignoreCase = true) -> Icons.Default.Place // Fallback seguro
+        recinto.nombre.contains("Tenis", ignoreCase = true) -> Icons.Default.Place
+        recinto.nombre.contains("Piscina", ignoreCase = true) -> Icons.Default.Place
+        else -> Icons.Default.Place
+    }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onClick() },
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Row(
             modifier = Modifier
-                .padding(16.dp)
+                .padding(20.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                imageVector = Icons.Default.Place,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(40.dp)
-            )
+            Surface(
+                modifier = Modifier.size(50.dp),
+                shape = MaterialTheme.shapes.medium,
+                color = MaterialTheme.colorScheme.primary
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(30.dp)
+                    )
+                }
+            }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(
                     text = recinto.nombre,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     text = recinto.descripcion,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = Color.Gray
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }

@@ -46,11 +46,18 @@ class MainActivity : ComponentActivity() {
 
                 composable("alumno_home") {
                     AlumnoHomeScreen(
+                        authViewModel = authViewModel,
                         onRecintoSelected = { recinto ->
                             navController.navigate("reserva_form/${recinto.id}/${recinto.nombre}")
                         },
                         onViewMyReservations = {
                             navController.navigate("mis_reservas")
+                        },
+                        onLogout = {
+                            authViewModel.logout()
+                            navController.navigate("login") {
+                                popUpTo("login") { inclusive = true }
+                            }
                         }
                     )
                 }
