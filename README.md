@@ -70,5 +70,7 @@ com.sebatrejo.resem
 
 ---
 
-## 🎓 Créditos
-Desarrollado por **Seba Trejo** como parte de la formación académica en el área de desarrollo móvil.
+## 🎓 Colaboradores
+- Sebastian Trejo
+- Felipe Galdames
+- Leonard Hernandez
